@@ -1,85 +1,94 @@
-<h1 id="title">Kickstarter Pledges</h1>
-<h2 id="description">Top 100 Most Pledged Kickstarter Campaigns Grouped By Category</h2>
-<svg id='canvas'></svg>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <title>Tree Map</title>
+</head>
+<body>
+  <h1 id="title">Kickstarter Pledges</h1>
+  <h2 id="description">Top 100 Most Pledged Kickstarter Campaigns Grouped By Category</h2>
+  <svg id='canvas'></svg>
 
-<svg id='legend'>
-  <g>
-    <rect class="legend-item" x="10" y="0" width="40" height="40" fill="pink"></rect>
-    <text x="60" y="25" fill="white">Product Design</text>
-  </g>
-  <g>
-    <rect class="legend-item" x="10" y="40" width="40" height="40" fill="blue"></rect>
-    <text x="60" y="65" fill="white">Tabletop Games</text>
-  </g>
-  <g>
-    <rect class="legend-item" x="10" y="80" width="40" height="40" fill="orange"></rect>
-    <text x="60" y="105" fill="white">Video games</text>
-  </g>
-  <g>
-    <rect class="legend-item" x="10" y="120" width="40" height="40" fill="red"></rect>
-    <text x="60" y="145" fill="white">Technology</text>
-  </g>
-  <g>
-    <rect class="legend-item" x="10" y="160" width="40" height="40" fill="green"></rect>
-    <text x="60" y="185" fill="white">Wearables</text>
-  </g>
-  <g>
-    <rect class="legend-item" x="10" y="200" width="40" height="40" fill="coral"></rect>
-    <text x="60" y="225" fill="white">Food</text>
-  </g>
-  <g>
-    <rect class="legend-item" x="10" y="240" width="40" height="40" fill="lightgreen"></rect>
-    <text x="60" y="265" fill="white">Apparel</text>
-  </g> 
-  <g>
-    <rect class="legend-item" x="10" y="280" width="40" height="40" fill="yellow"></rect>
-    <text x="60" y="305" fill="white">Gadgets</text>
-  </g> 
-  <g>
-    <rect class="legend-item" x="10" y="320" width="40" height="40" fill="purple"></rect>
-    <text x="60" y="345" fill="white">Drinks</text>
-  </g> 
-  <g>
-    <rect class="legend-item" x="10" y="360" width="40" height="40" fill="brown"></rect>
-    <text x="60" y="385" fill="white">Art</text>
-  </g> 
-  <g>
-    <rect class="legend-item" x="300" y="0" width="40" height="40" fill="indigo"></rect>
-    <text x="350" y="25" fill="white">3D Printing</text>
-  </g> 
-  <g>
-    <rect class="legend-item" x="300" y="40" width="40" height="40" fill="khaki"></rect>
-    <text x="350" y="65" fill="white">Hardware</text>
-  </g> 
-  <g>
-    <rect class="legend-item" x="300" y="80" width="40" height="40" fill="lightblue"></rect>
-    <text x="350" y="105" fill="white">Web</text>
-  </g> 
-  <g>
-    <rect class="legend-item" x="300" y="120" width="40" height="40" fill="darkorange"></rect>
-    <text x="350" y="145" fill="white">Sound</text>
-  </g> 
-  <g>
-    <rect class="legend-item" x="300" y="160" width="40" height="40" fill="darkseagreen"></rect>
-    <text x="350" y="185" fill="white">Television</text>
-  </g> 
-  <g>
-    <rect class="legend-item" x="300" y="200" width="40" height="40" fill="mediumorchid"></rect>
-    <text x="350" y="225" fill="white">Games</text>
-  </g> 
-  <g>
-    <rect class="legend-item" x="300" y="240" width="40" height="40" fill="lightsalmon"></rect>
-    <text x="350" y="265" fill="white">Gaming Hardware</text>
-  </g> 
-  <g>
-    <rect class="legend-item" x="300" y="280" width="40" height="40" fill="white"></rect>
-    <text x="350" y="305" fill="white">Sculpture</text>
-  </g>
-  <g>
-    <rect class="legend-item" x="300" y="320" width="40" height="40" fill="grey"></rect>
-    <text x="350" y="345" fill="white">Narrative Film</text>
-  </g> 
+  <svg id='legend'>
+    <g>
+      <rect class="legend-item" x="10" y="0" width="40" height="40" fill="pink"></rect>
+      <text x="60" y="25" fill="white">Product Design</text>
+    </g>
+    <g>
+      <rect class="legend-item" x="10" y="40" width="40" height="40" fill="blue"></rect>
+      <text x="60" y="65" fill="white">Tabletop Games</text>
+    </g>
+    <g>
+      <rect class="legend-item" x="10" y="80" width="40" height="40" fill="orange"></rect>
+      <text x="60" y="105" fill="white">Video games</text>
+    </g>
+    <g>
+      <rect class="legend-item" x="10" y="120" width="40" height="40" fill="red"></rect>
+      <text x="60" y="145" fill="white">Technology</text>
+    </g>
+    <g>
+      <rect class="legend-item" x="10" y="160" width="40" height="40" fill="green"></rect>
+      <text x="60" y="185" fill="white">Wearables</text>
+    </g>
+    <g>
+      <rect class="legend-item" x="10" y="200" width="40" height="40" fill="coral"></rect>
+      <text x="60" y="225" fill="white">Food</text>
+    </g>
+    <g>
+      <rect class="legend-item" x="10" y="240" width="40" height="40" fill="lightgreen"></rect>
+      <text x="60" y="265" fill="white">Apparel</text>
+    </g> 
+    <g>
+      <rect class="legend-item" x="10" y="280" width="40" height="40" fill="yellow"></rect>
+      <text x="60" y="305" fill="white">Gadgets</text>
+    </g> 
+    <g>
+      <rect class="legend-item" x="10" y="320" width="40" height="40" fill="purple"></rect>
+      <text x="60" y="345" fill="white">Drinks</text>
+    </g> 
+    <g>
+      <rect class="legend-item" x="10" y="360" width="40" height="40" fill="brown"></rect>
+      <text x="60" y="385" fill="white">Art</text>
+    </g> 
+    <g>
+      <rect class="legend-item" x="300" y="0" width="40" height="40" fill="indigo"></rect>
+      <text x="350" y="25" fill="white">3D Printing</text>
+    </g> 
+    <g>
+      <rect class="legend-item" x="300" y="40" width="40" height="40" fill="khaki"></rect>
+      <text x="350" y="65" fill="white">Hardware</text>
+    </g> 
+    <g>
+      <rect class="legend-item" x="300" y="80" width="40" height="40" fill="lightblue"></rect>
+      <text x="350" y="105" fill="white">Web</text>
+    </g> 
+    <g>
+      <rect class="legend-item" x="300" y="120" width="40" height="40" fill="darkorange"></rect>
+      <text x="350" y="145" fill="white">Sound</text>
+    </g> 
+    <g>
+      <rect class="legend-item" x="300" y="160" width="40" height="40" fill="darkseagreen"></rect>
+      <text x="350" y="185" fill="white">Television</text>
+    </g> 
+    <g>
+      <rect class="legend-item" x="300" y="200" width="40" height="40" fill="mediumorchid"></rect>
+      <text x="350" y="225" fill="white">Games</text>
+    </g> 
+    <g>
+      <rect class="legend-item" x="300" y="240" width="40" height="40" fill="lightsalmon"></rect>
+      <text x="350" y="265" fill="white">Gaming Hardware</text>
+    </g> 
+    <g>
+      <rect class="legend-item" x="300" y="280" width="40" height="40" fill="white"></rect>
+      <text x="350" y="305" fill="white">Sculpture</text>
+    </g>
+    <g>
+      <rect class="legend-item" x="300" y="320" width="40" height="40" fill="grey"></rect>
+      <text x="350" y="345" fill="white">Narrative Film</text>
+    </g> 
                
-</svg>
+  </svg>
 
-<div id='tooltip'></div>
+  <div id='tooltip'></div>
+</body>
