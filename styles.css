@@ -1,0 +1,24 @@
+svg{
+  background-color: wheat;
+}
+
+#canvas{
+  min-width: 800px;
+  min-height: 600px;
+}
+
+#legend{
+  min-width: 600px;
+  min-height: 1000px;
+}
+
+#tooltip{
+  visibility: hidden;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
